@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 30
   Lifespan: 3
+  deathEffect: {fileID: 3378184151530308274, guid: b1b6c4df7acb9ea4e8e19cc3aa530290, type: 3}
 --- !u!114 &8912507986269225170
 MonoBehaviour:
   m_ObjectHideFlags: 0
