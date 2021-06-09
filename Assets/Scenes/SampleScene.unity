@@ -504,7 +504,6 @@ GameObject:
   m_Component:
   - component: {fileID: 798200173}
   - component: {fileID: 798200172}
-  - component: {fileID: 798200174}
   - component: {fileID: 798200175}
   m_Layer: 0
   m_Name: NetworkManager
@@ -537,6 +536,8 @@ MonoBehaviour:
     NetworkPrefabs:
     - Prefab: {fileID: 39021255317751346, guid: e8ad2cdde46948440a4bc99e999b4f1d, type: 3}
       PlayerPrefab: 1
+    - Prefab: {fileID: 8912507986269225171, guid: 84e8b7567923fe6499086b42ae05a68d, type: 3}
+      PlayerPrefab: 0
     PlayerPrefabHash:
       id: 0
     CreatePlayerPrefab: 1
@@ -581,27 +582,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &798200174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798200171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52c005b32a68a254cbe502a4e5cb8eb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_NickName: PlayerName
-  m_RoomName: All
-  m_MaxPlayers: 16
-  m_ChannelIdCodesStartRange: 0
-  m_AttachSupportLogger: 0
-  m_BatchMode: 1
-  m_SendQueueBatchSize: 4096
-  m_BatchedTransportEventCode: 129
-  m_KickEventCode: 130
 --- !u!114 &798200175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1917,7 +1897,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5904e-41, y: -8.7682006e+33, z: 4.5904e-41, w: 9.403955e-38}
+  m_BoundingSphereOverride: {x: 1, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0

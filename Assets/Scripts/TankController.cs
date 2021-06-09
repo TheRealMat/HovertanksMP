@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MLAPI;
+using MLAPI.Messaging;
 
 public class TankController : NetworkBehaviour
 {
@@ -9,6 +10,9 @@ public class TankController : NetworkBehaviour
     float turretRotationSpeed = 100;
     public GameObject turret;
     public GameObject cannon;
+    public GameObject projectileSpawner;
+    public NetworkObject Projectile;
+
 
     private void Start()
     {
@@ -22,6 +26,10 @@ public class TankController : NetworkBehaviour
     {
 
         DoStuff();
+        if (Input.GetMouseButtonDown(0))
+        {
+            ShootServerRPC(projectileSpawner.transform.position, projectileSpawner.transform.rotation);
+        }
     }
 
     public void DoStuff()
@@ -34,7 +42,9 @@ public class TankController : NetworkBehaviour
         Quaternion desiredRotationTurret = TurretLookRotation(targetRotationTurret, turret.transform.up);
         Quaternion desiredRotationCannon = CannonLookRotation(targetRotationCannon, turret.transform.right);
         // Move toward that rotation at a controlled, even speed regardless of framerate.
+        // These should probably be clamped
         turret.transform.rotation = Quaternion.RotateTowards(turret.transform.rotation, desiredRotationTurret, turretRotationSpeed * Time.deltaTime);
+        // Cannon will try to rotate 180 degrees if you spin camera fast
         cannon.transform.rotation = Quaternion.RotateTowards(cannon.transform.rotation, desiredRotationCannon, turretRotationSpeed * Time.deltaTime);
     }
 
@@ -72,4 +82,17 @@ public class TankController : NetworkBehaviour
         // raycast didn't hit anything, so return a position 1000 units in front of the camera
         return Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 1000.0f));
     }
+
+
+
+    [ServerRpc]
+    public void ShootServerRPC(Vector3 spawnPos, Quaternion rotation)
+    {
+        NetworkObject shotProjectile = Instantiate(Projectile, spawnPos, rotation);
+        shotProjectile.Spawn();
+        // good naming
+        Projectile projectileProjectile = shotProjectile.GetComponent<Projectile>();
+        shotProjectile.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, projectileProjectile.Speed, 0), ForceMode.Impulse);
+    }
+
 }
