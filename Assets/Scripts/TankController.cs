@@ -10,8 +10,8 @@ public class TankController : NetworkBehaviour
     float turretRotationSpeed = 100;
     public GameObject turret;
     public GameObject cannon;
-    public GameObject projectileSpawner;
-    public NetworkObject Projectile;
+    public ProjectileSpawner projectileSpawner;
+    
 
 
     private void Start()
@@ -25,14 +25,23 @@ public class TankController : NetworkBehaviour
     private void Update()
     {
 
-        DoStuff();
+        HandleRotation();
         if (Input.GetMouseButtonDown(0))
         {
-            ShootServerRPC(projectileSpawner.transform.position, projectileSpawner.transform.rotation);
+            TryShoot();
         }
     }
 
-    public void DoStuff()
+    public void TryShoot()
+    {
+        if (Time.time > projectileSpawner.nextFire)
+        {
+            projectileSpawner.nextFire = Time.time + projectileSpawner.fireRate;
+            projectileSpawner.ShootServerRPC(projectileSpawner.transform.position, projectileSpawner.transform.rotation);
+        }
+    }
+
+    public void HandleRotation()
     {
         Vector3 aimPoint = GetAimpoint();
         Vector3 targetRotationTurret = aimPoint - turret.transform.position;
@@ -85,14 +94,6 @@ public class TankController : NetworkBehaviour
 
 
 
-    [ServerRpc]
-    public void ShootServerRPC(Vector3 spawnPos, Quaternion rotation)
-    {
-        NetworkObject shotProjectile = Instantiate(Projectile, spawnPos, rotation);
-        shotProjectile.Spawn();
-        // good naming
-        Projectile projectileProjectile = shotProjectile.GetComponent<Projectile>();
-        shotProjectile.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, projectileProjectile.Speed, 0), ForceMode.Impulse);
-    }
+
 
 }
