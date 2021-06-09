@@ -18,4 +18,13 @@ public class Projectile : NetworkBehaviour
         Destroy(gameObject, Lifespan);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObject);
+    }
+    void OnDestroy()
+    {
+        Debug.Log("OnDestroy called");
+    }
+
 }
