@@ -11,7 +11,18 @@ public class TankController : NetworkBehaviour
     public GameObject turret;
     public GameObject cannon;
     public ProjectileSpawner projectileSpawner;
-    
+
+    Rigidbody rb;
+    public float forwardAccel = 100f;
+    public float backwardAccel = 25f;
+    float currentThrust = 0f;
+    public float turnStrength = 10f;
+    float currentTurn = 0f;
+
+    LayerMask layerMask;
+    public float hoverForce = 9f;
+    public float hoverHeight = 2f;
+    public GameObject[] hoverPoints;
 
 
     private void Start()
@@ -20,6 +31,11 @@ public class TankController : NetworkBehaviour
         {
             this.enabled = false;
         }
+
+        rb = GetComponent<Rigidbody>();
+
+        layerMask = 1 << LayerMask.NameToLayer("Characters");
+        layerMask = ~layerMask;
     }
 
     private void Update()
@@ -30,7 +46,75 @@ public class TankController : NetworkBehaviour
         {
             TryShoot();
         }
+
+        // thrust
+        currentThrust = 0f;
+        float aclAxis = Input.GetAxis("Vertical");
+        if (aclAxis > 0)
+        {
+            currentThrust = aclAxis * forwardAccel;
+        }
+        else if (aclAxis < 0)
+        {
+            currentThrust = aclAxis * backwardAccel;
+        }
+
+        // turning
+        currentTurn = 0f;
+        float turnAxis = Input.GetAxis("Horizontal");
+        if (Mathf.Abs(turnAxis) > 0)
+            currentTurn = turnAxis;
     }
+
+
+    private void FixedUpdate()
+    {
+
+        // hover points
+        RaycastHit hit;
+        foreach (GameObject hoverPoint in hoverPoints)
+        {
+            // keep floating
+            if (Physics.Raycast(hoverPoint.transform.position, -Vector3.up, out hit, hoverHeight, layerMask))
+            {
+                rb.AddForceAtPosition(Vector3.up * hoverForce * (1f - (hit.distance / hoverHeight)), hoverPoint.transform.position);
+
+            }
+
+            // keep upright
+            else
+            {
+                Quaternion q = Quaternion.FromToRotation(transform.up, Vector3.up) * transform.rotation;
+                transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * hoverForce);
+            }
+
+        }
+
+
+
+
+        // forwards
+        if (Mathf.Abs(currentThrust) > 0)
+        {
+            // i think my gameobject is turned weird, oh well
+            rb.AddForce(transform.right * -currentThrust);
+        }
+
+        // turn
+        if (currentTurn > 0)
+        {
+            rb.AddRelativeTorque(Vector3.up * currentTurn * turnStrength);
+        }
+        else if (currentTurn < 0)
+        {
+            rb.AddRelativeTorque(Vector3.up * currentTurn * turnStrength);
+        }
+
+
+
+
+    }
+
 
     public void TryShoot()
     {

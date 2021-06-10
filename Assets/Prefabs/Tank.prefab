@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 39021253259274261}
   - component: {fileID: 6771481913848724250}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CannonAttach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 39021253647424268}
   - component: {fileID: 39021253647424257}
   - component: {fileID: 39021253647424256}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 39021254002334762}
   - component: {fileID: 39021254002334760}
   - component: {fileID: 39021254002334767}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CM vcam1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7766991, y: 1}
+    m_SensorSize: {x: 1.7784256, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -413,7 +413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 39021254018097863}
   - component: {fileID: 5060646372619902286}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TurretAttach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 39021255037680020}
   - component: {fileID: 39021255037680011}
   - component: {fileID: 6034656915003149784}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FollowTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: 39021255172897875}
   - component: {fileID: 39021255172897885}
   - component: {fileID: 39021255172897884}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -687,7 +687,8 @@ GameObject:
   - component: {fileID: 39021255317751344}
   - component: {fileID: 8487983842571586511}
   - component: {fileID: 7415373085681194098}
-  m_Layer: 0
+  - component: {fileID: -8456106570107251770}
+  m_Layer: 7
   m_Name: Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -708,6 +709,10 @@ Transform:
   - {fileID: 39021255037680020}
   - {fileID: 39021254018097863}
   - {fileID: 504430521377929513}
+  - {fileID: 7668005771245734131}
+  - {fileID: 7297639143163309411}
+  - {fileID: 1837427342328694335}
+  - {fileID: 414008514066745202}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -726,6 +731,16 @@ MonoBehaviour:
   turret: {fileID: 39021254018097856}
   cannon: {fileID: 39021253259274262}
   projectileSpawner: {fileID: 8271091599277495400}
+  forwardAccel: 10
+  backwardAccel: 5
+  turnStrength: 2
+  hoverForce: 3
+  hoverHeight: 1.5
+  hoverPoints:
+  - {fileID: 2270280373691477407}
+  - {fileID: 6880292318807104344}
+  - {fileID: 6779559829817747828}
+  - {fileID: 5493034990828390281}
 --- !u!114 &8487983842571586511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -791,6 +806,65 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &-8456106570107251770
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39021255317751346}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0.7
+  m_AngularDrag: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &5417892943342865839
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886021990688285587}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.8245325, y: 2.584831, z: 9.5079}
+  m_Center: {x: 0.17349052, y: 0.1857729, z: 0}
+--- !u!1 &2270280373691477407
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7668005771245734131}
+  m_Layer: 7
+  m_Name: HoverpointFrontLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7668005771245734131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2270280373691477407}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.65, y: -1.1700001, z: -10.6}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_Children: []
+  m_Father: {fileID: 39021255317751345}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5296625212917190307
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,7 +876,7 @@ GameObject:
   - component: {fileID: 1397998434193134307}
   - component: {fileID: 3829475615338498031}
   - component: {fileID: 8271091599277495400}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ProjectileSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -884,6 +958,98 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: -3635248216946969450, guid: 84e8b7567923fe6499086b42ae05a68d, type: 3}
+  fireRate: 0.5
+  nextFire: 0
+--- !u!1 &5493034990828390281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 414008514066745202}
+  m_Layer: 7
+  m_Name: HoverpointBackLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &414008514066745202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5493034990828390281}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.65, y: -1.1700001, z: -10.6}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_Children: []
+  m_Father: {fileID: 39021255317751345}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6779559829817747828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1837427342328694335}
+  m_Layer: 7
+  m_Name: HoverpointBackRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1837427342328694335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6779559829817747828}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.65, y: -1.1700001, z: 10.6}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_Children: []
+  m_Father: {fileID: 39021255317751345}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6880292318807104344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7297639143163309411}
+  m_Layer: 7
+  m_Name: HoverpointFrontRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7297639143163309411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6880292318807104344}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.65, y: -1.1700001, z: 10.6}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_Children: []
+  m_Father: {fileID: 39021255317751345}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &39021253308571330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -939,8 +1105,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: TankChassis
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 614eaf54bb3ebc34aaf0bf3ae0beb61a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 614eaf54bb3ebc34aaf0bf3ae0beb61a, type: 3}
+--- !u!1 &886021990688285587 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 614eaf54bb3ebc34aaf0bf3ae0beb61a, type: 3}
+  m_PrefabInstance: {fileID: 39021253308571330}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &504430521377929513 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 614eaf54bb3ebc34aaf0bf3ae0beb61a, type: 3}
@@ -1012,6 +1187,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 57dcaba5b353d714687d02303da54318, type: 3}
       propertyPath: m_Name
       value: TankTurret
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 57dcaba5b353d714687d02303da54318, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 57dcaba5b353d714687d02303da54318, type: 3}
       propertyPath: m_IsActive
@@ -1090,6 +1269,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b2dd0a60a92c18f4498ffa0a84140c96, type: 3}
       propertyPath: m_Name
       value: TankCannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b2dd0a60a92c18f4498ffa0a84140c96, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b2dd0a60a92c18f4498ffa0a84140c96, type: 3}
       propertyPath: m_IsActive
