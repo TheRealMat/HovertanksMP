@@ -822,6 +822,32 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8992560645990842000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886021989283302227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a50fa3b2c70db1c48a5bcdc6056cde93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors: []
+--- !u!114 &8760151791311251134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886021990160704055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a50fa3b2c70db1c48a5bcdc6056cde93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors: []
 --- !u!65 &5417892943342865839
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -835,6 +861,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 12.8245325, y: 2.584831, z: 9.5079}
   m_Center: {x: 0.17349052, y: 0.1857729, z: 0}
+--- !u!114 &3796510924106678915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886021990688285587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a50fa3b2c70db1c48a5bcdc6056cde93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &2270280373691477407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,6 +1143,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 614eaf54bb3ebc34aaf0bf3ae0beb61a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dbbb172167276cc44883f5b10fb23868, type: 2}
     - target: {fileID: 919132149155446097, guid: 614eaf54bb3ebc34aaf0bf3ae0beb61a, type: 3}
       propertyPath: m_Name
       value: TankChassis
@@ -1111,14 +1157,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 614eaf54bb3ebc34aaf0bf3ae0beb61a, type: 3}
---- !u!1 &886021990688285587 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 614eaf54bb3ebc34aaf0bf3ae0beb61a, type: 3}
-  m_PrefabInstance: {fileID: 39021253308571330}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &504430521377929513 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 614eaf54bb3ebc34aaf0bf3ae0beb61a, type: 3}
+  m_PrefabInstance: {fileID: 39021253308571330}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &886021990688285587 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 614eaf54bb3ebc34aaf0bf3ae0beb61a, type: 3}
   m_PrefabInstance: {fileID: 39021253308571330}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &39021253855256422
@@ -1184,6 +1230,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 57dcaba5b353d714687d02303da54318, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dbbb172167276cc44883f5b10fb23868, type: 2}
     - target: {fileID: 919132149155446097, guid: 57dcaba5b353d714687d02303da54318, type: 3}
       propertyPath: m_Name
       value: TankTurret
@@ -1201,6 +1251,11 @@ PrefabInstance:
 --- !u!4 &504430520831506573 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 57dcaba5b353d714687d02303da54318, type: 3}
+  m_PrefabInstance: {fileID: 39021253855256422}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &886021990160704055 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 57dcaba5b353d714687d02303da54318, type: 3}
   m_PrefabInstance: {fileID: 39021253855256422}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &39021254990607874
@@ -1266,6 +1321,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: b2dd0a60a92c18f4498ffa0a84140c96, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dbbb172167276cc44883f5b10fb23868, type: 2}
     - target: {fileID: 919132149155446097, guid: b2dd0a60a92c18f4498ffa0a84140c96, type: 3}
       propertyPath: m_Name
       value: TankCannon
@@ -1283,5 +1342,10 @@ PrefabInstance:
 --- !u!4 &504430519704539625 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b2dd0a60a92c18f4498ffa0a84140c96, type: 3}
+  m_PrefabInstance: {fileID: 39021254990607874}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &886021989283302227 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b2dd0a60a92c18f4498ffa0a84140c96, type: 3}
   m_PrefabInstance: {fileID: 39021254990607874}
   m_PrefabAsset: {fileID: 0}
