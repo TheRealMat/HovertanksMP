@@ -10,10 +10,17 @@ public class ProjectileSpawner : NetworkBehaviour
     public float fireRate = 0.5f;
     public float nextFire = 0.0f;
 
+    Rigidbody parentRb;
+    private void Start()
+    {
+        parentRb = transform.root.GetComponent<Rigidbody>();
+    }
+
     [ServerRpc]
     public void ShootServerRPC(Vector3 spawnPos, Quaternion rotation)
     {
         NetworkObject shotProjectile = Instantiate(projectile, spawnPos, rotation);
+        shotProjectile.GetComponent<Rigidbody>().velocity += parentRb.velocity;
         shotProjectile.Spawn();
     }
 }
