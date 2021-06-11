@@ -165,13 +165,11 @@ public class TankController : NetworkBehaviour
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, maxLookDistance))
+        if (Physics.Raycast(ray, out hit, maxLookDistance, layerMask))
         {
-            print("I'm looking at " + hit.transform.name + "at " + hit.transform.position);
             // raycast hit something, so return where it hit
             return hit.point;
         }
-        print("I'm looking at nothing!");
         // raycast didn't hit anything, so return a position 1000 units in front of the camera
         return Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 1000.0f));
     }
