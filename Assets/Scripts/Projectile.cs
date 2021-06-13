@@ -8,6 +8,7 @@ public class Projectile : NetworkBehaviour
 {
     public float Speed = 100;
     public float Lifespan = 3f;
+    public int damage = 10;
 
     public GameObject deathEffect;
     private Rigidbody rb;
@@ -21,6 +22,11 @@ public class Projectile : NetworkBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        HealthComponent healthComponent = collision.gameObject.GetComponent<HealthComponent>();
+        if (healthComponent != null)
+        {
+            healthComponent.TakeDamage(damage);
+        }
         Destroy(gameObject);
     }
     void OnDestroy()
