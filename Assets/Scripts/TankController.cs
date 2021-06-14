@@ -10,7 +10,7 @@ public class TankController : NetworkBehaviour
     float turretRotationSpeed = 100;
     public GameObject turret;
     public GameObject cannon;
-    public ProjectileSpawner projectileSpawner;
+    public Hitscan projectileSpawner;
 
     Rigidbody rb;
     public float forwardAccel = 100f;
@@ -42,10 +42,6 @@ public class TankController : NetworkBehaviour
     {
 
         HandleRotation();
-        if (Input.GetMouseButtonDown(0))
-        {
-            TryShoot();
-        }
 
         // thrust
         currentThrust = 0f;
@@ -115,15 +111,6 @@ public class TankController : NetworkBehaviour
 
     }
 
-
-    public void TryShoot()
-    {
-        if (Time.time > projectileSpawner.nextFire)
-        {
-            projectileSpawner.nextFire = Time.time + projectileSpawner.fireRate;
-            projectileSpawner.ShootServerRPC(projectileSpawner.transform.position, projectileSpawner.transform.rotation);
-        }
-    }
 
     public void HandleRotation()
     {

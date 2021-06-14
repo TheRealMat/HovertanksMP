@@ -7,45 +7,26 @@ using MLAPI.NetworkVariable;
 public class HealthComponent : NetworkBehaviour
 {
     [SerializeField]
-    private NetworkVariableInt m_Health = new NetworkVariableInt(100);
+    NetworkVariableInt health = new NetworkVariableInt(new NetworkVariableSettings { WritePermission = NetworkVariablePermission.OwnerOnly }, 100);
 
-    public NetworkVariableInt Health => m_Health;
+    PlayerRespawner playerSpawner;
 
-    void OnEnable()
+    private void Start()
     {
-        // Subscribe for when Health value changes
-        // This usually gets triggered when the server modifies that variable
-        // and is later replicated down to clients
-        Health.OnValueChanged += OnHealthChanged;
+        playerSpawner = GetComponent<PlayerRespawner>();
     }
 
-    void OnDisable()
+    private void Update()
     {
-        Health.OnValueChanged -= OnHealthChanged;
-    }
-
-    void OnHealthChanged(int oldValue, int newValue)
-    {
-        // Update UI, if this a client instance and it's the owner of the object
-        if (IsOwner && IsClient)
+        if (health.Value <= 0 && IsLocalPlayer)
         {
-            // TODO: Update UI code?
+            playerSpawner.respawn();
+            health.Value = 100;
         }
-
-        Debug.LogFormat("{0} has {1} health!", gameObject.name, m_Health.Value);
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(int damage)
     {
-        // Health should be modified server-side only
-        if (!IsServer) return;
-        Health.Value -= amount;
-
-        // TODO: You can play a VFX/SFX here if needed
-
-        if (Health.Value <= 0)
-        {
-            Health.Value = 0;
-        }
+        health.Value -= damage;
     }
 }
