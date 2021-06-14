@@ -6,6 +6,20 @@ using UnityEngine;
 
 public class ColorChanger : NetworkBehaviour
 {
+
+
+    Colors colors;
+
+
+    public void GiveRandomColors()
+    {
+        colors = NetworkManager.Singleton.gameObject.GetComponent<Colors>();
+        SelectColorRed(Random.Range(0, colors.colorsRed.Length));
+        SelectColorGreen(Random.Range(0, colors.colorsGreen.Length));
+        SelectColorBlue(Random.Range(0, colors.colorsBlue.Length));
+        SelectColorGlow(Random.Range(0, colors.colorsGlow.Length));
+    }
+
     // button can only have one parameter, also has to be int
     // pls refactor, this is really bad
     public void SelectColorRed(int colorIndexRed)

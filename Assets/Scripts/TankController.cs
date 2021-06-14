@@ -36,6 +36,10 @@ public class TankController : NetworkBehaviour
 
         layerMask = 1 << LayerMask.NameToLayer("Characters");
         layerMask = ~layerMask;
+
+
+        ColorChanger colorChanger = FindObjectOfType<ColorChanger>();
+        colorChanger.GiveRandomColors();
     }
 
     private void Update()
