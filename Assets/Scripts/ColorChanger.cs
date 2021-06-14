@@ -14,10 +14,10 @@ public class ColorChanger : NetworkBehaviour
     public void GiveRandomColors()
     {
         colors = NetworkManager.Singleton.gameObject.GetComponent<Colors>();
-        SelectColorRed(Random.Range(0, colors.colorsRed.Length - 1));
-        SelectColorGreen(Random.Range(0, colors.colorsGreen.Length - 1));
-        SelectColorBlue(Random.Range(0, colors.colorsBlue.Length - 1));
-        SelectColorGlow(Random.Range(0, colors.colorsGlow.Length - 1));
+        SelectColorRed(Random.Range(1, colors.colorsRed.Length));
+        SelectColorGreen(Random.Range(1, colors.colorsGreen.Length));
+        SelectColorBlue(Random.Range(1, colors.colorsBlue.Length));
+        SelectColorGlow(Random.Range(1, colors.colorsGlow.Length));
     }
 
     // button can only have one parameter, also has to be int
