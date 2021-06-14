@@ -9,7 +9,7 @@ public class Hitscan : NetworkBehaviour
     public float fireRate = 0.5f;
     public float nextFire = 0.0f;
     public GameObject projectileSpawner;
-
+    public TrailRenderer bulletTrail;
 
     private void Update()
     {
@@ -45,5 +45,15 @@ public class Hitscan : NetworkBehaviour
     public void ShootClientRpc()
     {
         // visual stuff
+        var bullet = Instantiate(bulletTrail, projectileSpawner.transform.position, Quaternion.identity);
+        bullet.AddPosition(projectileSpawner.transform.position);
+        if (Physics.Raycast(projectileSpawner.transform.position, projectileSpawner.transform.forward, out RaycastHit hit, 2000f))
+        {
+            bullet.transform.position = hit.point;
+        }
+        else
+        {
+            bullet.transform.position = projectileSpawner.transform.position + (projectileSpawner.transform.forward * 2000);
+        }
     }
 }

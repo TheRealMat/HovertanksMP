@@ -854,6 +854,7 @@ MonoBehaviour:
   fireRate: 0.5
   nextFire: 0
   projectileSpawner: {fileID: 5296625212917190307}
+  bulletTrail: {fileID: 3911604660633324692, guid: bd80f52338c48b74b8df5d920c22d554, type: 3}
 --- !u!114 &9165617430988380513
 MonoBehaviour:
   m_ObjectHideFlags: 0
