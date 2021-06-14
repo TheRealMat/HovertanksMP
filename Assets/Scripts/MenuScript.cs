@@ -11,9 +11,12 @@ public class MenuScript : MonoBehaviour
     public string ipAddress = "127.0.0.1";
     UNetTransport transport;
     public Camera lobbyCamera;
+    public GameObject crosshair;
 
     public void Host()
     {
+        Cursor.visible = false;
+        crosshair.SetActive(true);
         menuPanel.SetActive(false);
         lobbyCamera.gameObject.SetActive(false);
         NetworkManager.Singleton.ConnectionApprovalCallback += ApprovalCheck;
@@ -33,6 +36,8 @@ public class MenuScript : MonoBehaviour
     {
         transport = NetworkManager.Singleton.GetComponent<UNetTransport>();
         transport.ConnectAddress = ipAddress;
+        Cursor.visible = false;
+        crosshair.SetActive(true);
         menuPanel.SetActive(false);
         lobbyCamera.gameObject.SetActive(false);
         NetworkManager.Singleton.NetworkConfig.ConnectionData = System.Text.Encoding.ASCII.GetBytes("Password1234");
