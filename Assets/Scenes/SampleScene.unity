@@ -392,7 +392,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1239479191}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ColorChanger, Assembly-CSharp
         m_MethodName: SelectColorBlue
         m_Mode: 3
@@ -814,7 +814,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1239479191}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ColorChanger, Assembly-CSharp
         m_MethodName: SelectColorRed
         m_Mode: 3
@@ -877,6 +877,7 @@ GameObject:
   - component: {fileID: 570699620}
   - component: {fileID: 570699619}
   - component: {fileID: 570699623}
+  - component: {fileID: 570699624}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -981,6 +982,18 @@ MonoBehaviour:
   menuPanel: {fileID: 2019339959}
   ipAddress: 127.0.0.1
   lobbyCamera: {fileID: 1543484024}
+--- !u!114 &570699624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570699618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf351fa87b3b54845a9d97f4651ff75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &597192225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,7 +1211,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1239479191}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ColorChanger, Assembly-CSharp
         m_MethodName: SelectColorGreen
         m_Mode: 3
@@ -1331,7 +1344,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1239479191}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ColorChanger, Assembly-CSharp
         m_MethodName: SelectColorGlow
         m_Mode: 3
@@ -2044,7 +2057,6 @@ GameObject:
   - component: {fileID: 1239479188}
   - component: {fileID: 1239479190}
   - component: {fileID: 1239479189}
-  - component: {fileID: 1239479191}
   m_Layer: 5
   m_Name: ColorPanel
   m_TagString: Untagged
@@ -2113,18 +2125,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1239479187}
   m_CullTransparentMesh: 1
---- !u!114 &1239479191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1239479187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf351fa87b3b54845a9d97f4651ff75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1278143632
 GameObject:
   m_ObjectHideFlags: 0
