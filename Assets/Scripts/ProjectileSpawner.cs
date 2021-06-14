@@ -21,10 +21,6 @@ public class ProjectileSpawner : NetworkBehaviour
     {
         NetworkObject shotProjectile = Instantiate(projectile, spawnPos, rotation);
 
-        // this is silly
-        Collider cannonCollider = transform.parent.GetComponentInChildren<Collider>();
-
-        Physics.IgnoreCollision(shotProjectile.GetComponent<Collider>(), cannonCollider);
         shotProjectile.GetComponent<Rigidbody>().velocity += parentRb.velocity;
         shotProjectile.Spawn();
     }
